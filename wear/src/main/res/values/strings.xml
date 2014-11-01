@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">Seizure Detector</string>
-    <string name="hello_round">Hello Round World!</string>
-    <string name="hello_square">Hello Square World!</string>
+    <string name="hello_round">Someday this\'ll have options</string>
+    <string name="hello_square">Someday this\'ll have options</string>
 
 </resources>

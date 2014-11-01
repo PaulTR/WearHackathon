@@ -32,13 +32,13 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".HelpIsOnTheWayActivity" />
-
         <receiver android:name=".AutoStart">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
+
+        <activity android:name=".HelpIsOnTheWayActivity" />
 
         <service android:name=".TimerService" />
         <service android:name=".HeartRateService" />

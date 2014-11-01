@@ -18,6 +18,7 @@ import com.google.android.gms.wearable.MessageEvent;
 import com.google.android.gms.wearable.WearableListenerService;
 
 import java.io.IOException;
+import java.util.Locale;
 
 /**
  * Created by paulruiz on 11/1/14.
@@ -65,6 +66,7 @@ public class AlerterService extends WearableListenerService implements GooglePla
     }
 
     private void sendText( String address ) {
+        Toast.makeText( getApplicationContext(), "Sending Text Message", Toast.LENGTH_SHORT ).show();
         PendingIntent sIntent = PendingIntent.getBroadcast(
                 this, 0, new Intent( "com.ptrprograms.seizuredetector.SEND" ), 0);
         PendingIntent dIntent = PendingIntent.getBroadcast(
@@ -74,6 +76,7 @@ public class AlerterService extends WearableListenerService implements GooglePla
         String message = "Help, I'm having a seizure! My name is Paul Trebilcox-Ruiz.";
         if( !TextUtils.isEmpty( address ) ) {
             message += " I'm at " + address + ".";
+            //message += " " + String.format( Locale.ENGLISH, "http://maps.google.com/maps?&daddr=%f,%f", mCurrentLocation.latitude, mCurrentLocation.longitude );
         }
         message += " Please send medical assistance.";
         SmsManager manager = SmsManager.getDefault();

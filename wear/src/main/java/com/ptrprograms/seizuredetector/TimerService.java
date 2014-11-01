@@ -71,11 +71,11 @@ public class TimerService extends IntentService {
         PendingIntent pendingRemoveIntent = PendingIntent.getService( this, 0, removeIntent, PendingIntent.FLAG_UPDATE_CURRENT );
 
         return new NotificationCompat.Builder( this )
-                .setSmallIcon( R.drawable.ic_launcher )
+                .setSmallIcon( R.drawable.heart )
                 .setContentTitle( "Seizure?!" )
                 .setContentText(TimeUtil.getTimeString( duration ) )
                 .setUsesChronometer( true )
-                .setLargeIcon( BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher) )
+                .setLargeIcon( BitmapFactory.decodeResource(getResources(), R.drawable.heart) )
                 .setWhen( System.currentTimeMillis() + duration )
                 .addAction( R.drawable.ic_launcher, "Remove Timer", pendingRemoveIntent )
                 .setDeleteIntent( pendingRemoveIntent )
