@@ -31,9 +31,6 @@ public class SeizureService extends Service implements ShakeDetector.Listener {
     @Override
     public void hearShake() {
 
-        Toast.makeText(this, "Shaking!", Toast.LENGTH_SHORT).show();
-
-        Log.e("SeizureService", "hearShake" );
         Intent intent = new Intent( getApplicationContext(), HeartRateService.class );
         startService( intent );
 

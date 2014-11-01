@@ -48,7 +48,6 @@ public class HeartRateService extends Service implements HeartRateDetector.Liste
         Log.e( "HeartRateService", "heartrate: " + heartRate );
         if( mHeartrate == -1 ) {
             mHeartrate = heartRate;
-            Toast.makeText( getApplicationContext(), "Value: " + heartRate, Toast.LENGTH_SHORT ).show();
             Intent intent = new Intent( getApplicationContext(), TimerService.class );
             intent.setAction( TimerService.ACTION_SHOW_ALARM );
             startService( intent );

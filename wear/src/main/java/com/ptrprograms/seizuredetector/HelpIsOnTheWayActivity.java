@@ -56,6 +56,12 @@ public class HelpIsOnTheWayActivity extends Activity implements GoogleApiClient.
 
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        finish();
+    }
+
     private void initGoogleApiClient() {
         mApiClient = new GoogleApiClient.Builder( this )
                 .addApi( Wearable.API )
