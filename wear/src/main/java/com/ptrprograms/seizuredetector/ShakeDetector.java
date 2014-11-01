@@ -25,6 +25,8 @@ public class ShakeDetector implements SensorEventListener {
      */
     private static final int ACCELERATION_THRESHOLD = 13;
 
+    private long nextshaketime;
+
     /** Listens for shakes. */
     public interface Listener {
         /** Called on the main thread when the device is shaken. */
@@ -77,10 +79,14 @@ public class ShakeDetector implements SensorEventListener {
     }
 
     @Override public void onSensorChanged(SensorEvent event) {
+        if( System.currentTimeMillis() < nextshaketime )
+            return;
+
         boolean accelerating = isAccelerating(event);
         long timestamp = event.timestamp;
         queue.add(timestamp, accelerating);
         if (queue.isShaking()) {
+            nextshaketime = System.currentTimeMillis() + 10000;
             queue.clear();
             listener.hearShake();
         }

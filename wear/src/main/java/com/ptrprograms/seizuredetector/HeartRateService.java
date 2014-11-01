@@ -26,6 +26,7 @@ public class HeartRateService extends Service implements HeartRateDetector.Liste
         //HeartRateDetector hrd = new HeartRateDetector( this );
         //hrd.start( sensorManager );
 
+        Log.e( "Heart Rate", "onStartCommand" );
         new Thread( new Runnable() {
             @Override
             public void run() {
